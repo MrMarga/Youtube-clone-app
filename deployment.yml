@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-deployment
+  name: my-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app-youtube
+      app: my-app
   template:
     metadata:
       labels:
-        app: my-app-youtube
+        app: my-app
     spec:
       containers:
-        - name: my-app-youtube
+        - name: my-app
           image: mrmarga/youtube:latest
           ports:
             - containerPort: 3000  # Your Node.js application should listen on port 3000
@@ -26,7 +26,7 @@ metadata:
   name: my-app-service
 spec:
   selector:
-    app: my-app-youtube
+    app: my-app
   ports:
     - protocol: TCP
       port: 80  # You can use port 80 here for HTTP traffic
