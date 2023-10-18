@@ -6,14 +6,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: my-app-youtube
   template:
     metadata:
       labels:
-        app: my-app
+        app: my-app-youtube
     spec:
       containers:
-        - name: my-app
+        - name: my-app-youtube
           image: mrmarga/youtube:latest
           ports:
             - containerPort: 3000  # Your Node.js application should listen on port 3000
@@ -26,7 +26,7 @@ metadata:
   name: my-app-service
 spec:
   selector:
-    app: my-app
+    app: my-app-youtube
   ports:
     - protocol: TCP
       port: 80  # You can use port 80 here for HTTP traffic
